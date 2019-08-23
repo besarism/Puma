@@ -10,7 +10,7 @@ import Colorizer
 
 public struct Log {
     public static func task(_ string: String) {
-        let slacker = Slacker(message: "Running tasks")
+        let slacker = Slacker(message: "🚀 Running task \(string)".style.Bold.foreground.Cyan)
         print(String(repeating: "=", count: 60).foreground.Cyan)
         print("🚀 Running task \(string)".style.Bold.foreground.Cyan)
         print(String(repeating: "=", count: 60).foreground.Cyan)
