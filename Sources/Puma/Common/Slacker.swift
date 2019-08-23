@@ -11,11 +11,30 @@ import SlackKit
 public struct Slacker {
     
     init(message: String) {
-        let response = ResponseMiddleware(token: "M9rCVTJSId3xKRyGEkl2DtUQ", response: SKResponse(text: message))
-        let actionRoute = MessageActionRoute(action: helloAction, middleware: response)
-        let actionMiddleware = MessageActionMiddleware(token: "M9rCVTJSId3xKRyGEkl2DtUQ", routes:[actionRoute])
-        let actions = RequestRoute(path: "/actions", middleware: actionMiddleware)
-        let responder = SlackKitResponder(routes: [actions])
-        slackkit.addServer(responder: responder)
+        let Url = String(format: "https://hooks.slack.com/services/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")
+        guard let serviceUrl = URL(string: Url) else { return }
+        let parameterDictionary = ["text" : "Test from swift!!!"]
+        var request = URLRequest(url: serviceUrl)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameterDictionary, options: []) else {
+            return
+        }
+        request.httpBody = httpBody
+        
+        let session = URLSession.shared
+        session.dataTask(with: request) { (data, response, error) in
+            if let response = response {
+                print(response)
+            }
+            if let data = data {
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: [])
+                    print(json)
+                } catch {
+                    print(error)
+                }
+            }
+        }.resume()
     }
 }
