@@ -20,10 +20,6 @@ let package = Package(
         .package(
             url: "https://github.com/JohnSundell/Files.git",
             .upToNextMajor(from : "3.1.0")
-        ),
-        .package(
-            url: "https://github.com/pvzig/SlackKit.git",
-            .upToNextMinor(from: "4.3.0")
         )
     ],
     targets: [
@@ -32,8 +28,7 @@ let package = Package(
             dependencies: [
                 "XcbeautifyLib",
                 "Colorizer",
-                "Files",
-                "SlackKit"
+                "Files"
             ]
         ),
         .testTarget(
