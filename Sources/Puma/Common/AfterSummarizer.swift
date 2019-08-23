@@ -42,7 +42,6 @@ public class AfterSummerizer {
         })
         
         Log.newLine()
-        let slacker = Slacker()
     }
     
     public func parse(seconds: TimeInterval) -> String {

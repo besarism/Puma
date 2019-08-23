@@ -11,7 +11,7 @@ import SlackKit
 public struct Slacker {
     
     init() {
-        let bot = SlackKit()
+        let bot = SlackKit(message: String)
         let oauthConfig = OAuthConfig(clientID: "721702835698.738597109911", clientSecret: "01ae99d7df21b4ff1f9f5014340f9a07")
         bot.addServer(oauth: oauthConfig)
         let helloAction = Action(name: "hello", text: "🌎")
