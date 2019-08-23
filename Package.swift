@@ -21,7 +21,10 @@ let package = Package(
             url: "https://github.com/JohnSundell/Files.git",
             .upToNextMajor(from : "3.1.0")
         ),
-        .package(url: "https://github.com/pvzig/SlackKit.git", .upToNextMinor(from: "4.3.0"))
+        .package(
+            url: "https://github.com/pvzig/SlackKit.git",
+            .upToNextMinor(from: "4.3.0")
+        )
     ],
     targets: [
         .target(
@@ -34,7 +37,8 @@ let package = Package(
         ),
         .testTarget(
             name: "PumaTests",
-            dependencies: ["Puma"
+            dependencies: [
+                "Puma"
             ]
         )
     ]
