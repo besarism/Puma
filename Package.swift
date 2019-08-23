@@ -32,7 +32,8 @@ let package = Package(
             dependencies: [
                 "XcbeautifyLib",
                 "Colorizer",
-                "Files"
+                "Files",
+                "SlackKit"
             ]
         ),
         .testTarget(
